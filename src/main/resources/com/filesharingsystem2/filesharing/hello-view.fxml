@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.filesharingsystem2.filesharing.HelloController">
+
+  <!-- MenuBar vast aan de bovenkant -->
+  <top>
+    <MenuBar>
+      <Menu text="File Sharing System">
+        <MenuItem text="Main Screen" onAction="#goToMainScreen"/>
+        <MenuItem text="Server Dashboard" onAction="#goToServerDashboard"/>
+        <MenuItem text="Client File Sync" onAction="#goToClientSync"/>
+      </Menu>
+    </MenuBar>
+  </top>
+
+  <!-- De rest van de content in het midden van het scherm -->
+  <center>
+    <VBox alignment="CENTER" spacing="20.0">
+      <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+
+      <!-- Titel van het scherm -->
+      <Label text="Welcome to the File Sharing System" style="-fx-font-size: 18px;" />
+
+      <!-- Start Server knop -->
+      <Button text="Start Server" onAction="#onStartServerClick" />
+
+      <!-- Start Client knop -->
+      <Button text="Start Client" onAction="#onStartClientClick" />
+
+      <!-- Status tekst -->
+      <Label fx:id="statusLabel" text="Status: Waiting..." style="-fx-font-size: 12px;" />
+    </VBox>
+  </center>
+
+</BorderPane>
