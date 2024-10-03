@@ -67,12 +67,23 @@ public class HelloController {
     }
 
     @FXML
-    public void goToMainScreen() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main-screen.fxml"));
-        Stage stage = (Stage) statusLabel.getScene().getWindow();
-        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));  // Vergroot het scherm
-        stage.show();
+    protected void goToMainScreen() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/filesharingsystem2/filesharing/hello-view.fxml"));
+            Stage stage = (Stage) statusLabel.getScene().getWindow(); // Haal het huidige venster op
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600); // Standaard grootte
+
+            // Koppel het CSS-bestand opnieuw
+            scene.getStylesheets().add(getClass().getResource("/com/filesharingsystem2/filesharing/styles.css").toExternalForm());
+
+            stage.setScene(scene);
+            stage.setFullScreen(true); // Zorg dat het scherm fullscreen blijft
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     public void goToServerDashboard() throws IOException {

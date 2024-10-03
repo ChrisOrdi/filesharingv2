@@ -11,14 +11,14 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600); // Stel de grootte standaard in
 
-        // Stel de achtergrondkleur in met CSS via de setStyle-methode
-        scene.getRoot().setStyle("-fx-background-color: linear-gradient(to right, #ff7e5f, #feb47b);");
+        // Koppel het CSS-bestand
+        scene.getStylesheets().add(getClass().getResource("/com/filesharingsystem2/filesharing/styles.css").toExternalForm());
 
         stage.setTitle("File Sharing Application Main Screen");
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        stage.setFullScreen(true); // Maak het scherm fullscreen
         stage.show();
     }
 
